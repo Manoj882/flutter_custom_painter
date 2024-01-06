@@ -22,9 +22,9 @@ class MyApp extends StatelessWidget {
       ),
       // home: const CustomPainterHomePage(),
 
-      // home: const CustomPainterCanvasGuidePage(),
+      home: const CustomPainterCanvasGuidePage(),
 
-      home: CustomPainterCanvasPage(),
+      // home: CustomPainterCanvasPage(),
     );
   }
 }

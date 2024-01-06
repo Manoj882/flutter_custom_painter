@@ -47,20 +47,20 @@ class CustomPainterCanvasGuide extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     Paint paint = Paint()
       ..strokeWidth = 4
-      ..color = Colors.black;
+      ..color = Colors.black
+      ..style = PaintingStyle.fill;
 
-    final Float32List points = Float32List.fromList([
-      0,
-      0,
-      size.width,
-      0,
-      size.width / 2,
-      size.height / 2,
-      0,
-      0,
-    ]);
+    Path path = Path()
+      ..addOval(
+        Rect.fromCenter(
+          center: Offset(size.width / 2, size.height / 2),
+          width: size.width / 2,
+          height: size.height / 2,
+        ),
+      );
 
-    canvas.drawRawPoints(ui.PointMode.polygon, points, paint);
+    canvas.drawShadow(path, Colors.blue, 10, false);
+    canvas.drawPath(path, paint);
   }
 
   @override
