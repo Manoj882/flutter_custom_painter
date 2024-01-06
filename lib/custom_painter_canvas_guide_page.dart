@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'dart:ui' as ui;
+
 class CustomPainterCanvasGuidePage extends StatefulWidget {
   const CustomPainterCanvasGuidePage({super.key});
 
@@ -41,7 +43,15 @@ class CustomPainterCanvasGuide extends CustomPainter {
   final AnimationController? _animationController;
   @override
   void paint(Canvas canvas, Size size) {
-    canvas.drawColor(Colors.indigo, BlendMode.src);
+    Paint paint = Paint()
+      ..strokeWidth = 2
+      ..style = PaintingStyle.fill
+      ..shader = ui.Gradient.linear(Offset(size.width / 2, 0),
+          Offset(size.width / 2, size.height), [Colors.red, Colors.green]);
+
+    canvas.clipRect(Offset.zero & size);
+
+    canvas.drawPaint(paint);
   }
 
   @override
