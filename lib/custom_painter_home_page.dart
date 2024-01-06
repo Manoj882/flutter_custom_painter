@@ -36,11 +36,8 @@ class MasterPainter extends CustomPainter {
 
     paint.strokeWidth = 2;
     paint.color = Colors.black;
-    canvas.drawLine(
-      Offset.zero,
-      Offset(size.width, 0),
-      paint,
-    );
+    paint.style = PaintingStyle.stroke;
+    canvas.drawCircle(Offset(size.width / 2, size.height / 2), 40, paint);
   }
 
   @override
