@@ -36,13 +36,17 @@ class MasterPainter extends CustomPainter {
 
     paint.strokeWidth = 2;
     paint.color = Colors.black;
-    paint.style = PaintingStyle.stroke;
+    paint.style = PaintingStyle.fill;
 
-    Offset center = Offset(size.width / 2, size.height / 2);
+    Rect bigRect = Rect.fromLTRB(10, 20, 100, 200);
 
-    Rect rect = Rect.fromLTRB(10, 10, 100, 200);
+    Rect smallRect = Rect.fromLTRB(20, 30, 100, 180);
 
-    canvas.drawRRect(RRect.fromRectXY(rect, 75, 25), paint);
+    RRect bigRRect = RRect.fromRectXY(bigRect, 75, 25);
+
+    RRect smallRRect = RRect.fromRectXY(smallRect, 75, 25);
+
+    canvas.drawDRRect(bigRRect, smallRRect, paint);
   }
 
   @override
