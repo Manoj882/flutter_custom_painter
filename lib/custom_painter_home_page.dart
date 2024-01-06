@@ -40,7 +40,7 @@ class MasterPainter extends CustomPainter {
 
     Offset center = Offset(size.width / 2, size.height / 2);
     canvas.drawRect(
-      Rect.fromLTWH(10, 10, size.width, size.height),
+      Rect.fromLTRB(10, 20, 100, 200),
       paint,
     );
   }
