@@ -67,7 +67,12 @@ class CustomPainterCanvas extends CustomPainter {
     ui.Image? image = imageInfoProvider.value;
 
     if (image != null) {
-      canvas.drawImage(image, Offset.zero, paint);
+      Size imageSize = Size(image.width.toDouble(), image.height.toDouble());
+
+      Rect imageRect = Offset.zero & imageSize;
+      Rect canvasRect = Offset.zero & size;
+
+      canvas.drawImageRect(image, imageRect, canvasRect, paint);
     }
   }
 
