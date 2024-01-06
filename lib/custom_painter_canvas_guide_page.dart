@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 
 import 'dart:ui' as ui;
@@ -47,14 +49,18 @@ class CustomPainterCanvasGuide extends CustomPainter {
       ..strokeWidth = 4
       ..color = Colors.black;
 
-    final List<Offset> points = <Offset>[
-      Offset.zero,
-      Offset(size.width, 0),
-      Offset(size.width / 2, size.height / 2),
-      Offset.zero,
-    ];
+    final Float32List points = Float32List.fromList([
+      0,
+      0,
+      size.width,
+      0,
+      size.width / 2,
+      size.height / 2,
+      0,
+      0,
+    ]);
 
-    canvas.drawPoints(ui.PointMode.polygon, points, paint);
+    canvas.drawRawPoints(ui.PointMode.polygon, points, paint);
   }
 
   @override
