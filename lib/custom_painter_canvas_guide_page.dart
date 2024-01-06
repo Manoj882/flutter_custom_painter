@@ -45,22 +45,20 @@ class CustomPainterCanvasGuide extends CustomPainter {
   final AnimationController? _animationController;
   @override
   void paint(Canvas canvas, Size size) {
-    Paint paint = Paint()
-      ..strokeWidth = 4
-      ..color = Colors.black
-      ..style = PaintingStyle.fill;
+    ui.ParagraphStyle paragraphStyle = ui.ParagraphStyle(
+      fontSize: 18,
+      fontWeight: FontWeight.normal,
+    );
 
-    Path path = Path()
-      ..addOval(
-        Rect.fromCenter(
-          center: Offset(size.width / 2, size.height / 2),
-          width: size.width / 2,
-          height: size.height / 2,
-        ),
-      );
+    ui.TextStyle textStyle = ui.TextStyle(color: Colors.indigo);
+    ui.ParagraphBuilder paragraphBuilder = ui.ParagraphBuilder(paragraphStyle);
 
-    canvas.drawShadow(path, Colors.blue, 10, false);
-    canvas.drawPath(path, paint);
+    paragraphBuilder.pushStyle(textStyle);
+    paragraphBuilder.addText("Hello Flutter Community \n \n From Manoj");
+
+    ui.Paragraph paragraph = paragraphBuilder.build();
+    paragraph.layout(ui.ParagraphConstraints(width: size.width));
+    canvas.drawParagraph(paragraph, Offset.zero);
   }
 
   @override
