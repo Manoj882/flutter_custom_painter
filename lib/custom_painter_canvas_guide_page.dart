@@ -44,14 +44,17 @@ class CustomPainterCanvasGuide extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     Paint paint = Paint()
-      ..strokeWidth = 2
-      ..style = PaintingStyle.fill
-      ..shader = ui.Gradient.linear(Offset(size.width / 2, 0),
-          Offset(size.width / 2, size.height), [Colors.red, Colors.green]);
+      ..strokeWidth = 4
+      ..color = Colors.black;
 
-    canvas.clipRect(Offset.zero & size);
+    final List<Offset> points = <Offset>[
+      Offset.zero,
+      Offset(size.width, 0),
+      Offset(size.width / 2, size.height / 2),
+      Offset.zero,
+    ];
 
-    canvas.drawPaint(paint);
+    canvas.drawPoints(ui.PointMode.polygon, points, paint);
   }
 
   @override
