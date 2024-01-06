@@ -39,8 +39,11 @@ class MasterPainter extends CustomPainter {
     paint.style = PaintingStyle.stroke;
 
     Offset center = Offset(size.width / 2, size.height / 2);
-    canvas.drawOval(
-      Rect.fromLTRB(10, 10, 100, 200),
+
+    Rect rect = Rect.fromLTRB(10, 10, 100, 200);
+
+    canvas.drawRRect(
+      RRect.fromRectAndRadius(rect, Radius.circular(16)),
       paint,
     );
   }
