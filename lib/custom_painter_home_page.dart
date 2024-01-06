@@ -43,7 +43,11 @@ class MasterPainter extends CustomPainter {
     Rect rect = Rect.fromLTRB(10, 10, 100, 200);
 
     canvas.drawRRect(
-      RRect.fromRectAndRadius(rect, Radius.circular(16)),
+      RRect.fromRectAndCorners(
+        rect,
+        topLeft: Radius.circular(16),
+        topRight: Radius.circular(16),
+      ),
       paint,
     );
   }
