@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_painter/custom_painter_canvas_guide_page.dart';
+import 'package:flutter_custom_painter/custom_painter_canvas_page.dart';
 
 import 'custom_painter_home_page.dart';
 
@@ -21,7 +22,9 @@ class MyApp extends StatelessWidget {
       ),
       // home: const CustomPainterHomePage(),
 
-      home: const CustomPainterCanvasGuidePage(),
+      // home: const CustomPainterCanvasGuidePage(),
+
+      home: CustomPainterCanvasPage(),
     );
   }
 }
